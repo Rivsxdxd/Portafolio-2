@@ -6,7 +6,7 @@ let filtroActual = "Todos";
 let cotizacion = cargarCotizacion();
 let temporizadorAviso;
 
-// Guardar y cargar en el navegador
+
 function cargarCotizacion() {
   const guardado = localStorage.getItem("titan-cot");
   if (!guardado) {
@@ -24,7 +24,7 @@ function formatoDinero(valor) {
   return "$" + valor.toFixed(2);
 }
 
-// Cambiar entre Inicio, Catálogo y Cotizador
+
 function mostrarPantalla() {
   let hash = location.hash.replace("#", "");
   if (!pantallas.includes(hash)) {
@@ -49,7 +49,7 @@ function mostrarPantalla() {
 
 window.addEventListener("hashchange", mostrarPantalla);
 
-// Aviso flotante
+
 function mostrarAviso(mensaje) {
   const toast = document.querySelector("#toast");
   toast.textContent = mensaje;
@@ -61,7 +61,7 @@ function mostrarAviso(mensaje) {
   }, 2000);
 }
 
-// Botones de tipo y color del camión
+
 const botonesTipo = document.querySelectorAll(".seg button");
 for (const boton of botonesTipo) {
   boton.addEventListener("click", function () {
@@ -85,7 +85,7 @@ for (const boton of botonesColor) {
   });
 }
 
-// Contadores sencillos de inicio
+
 function animarContadores() {
   const contadores = document.querySelectorAll("[data-count]");
   for (const el of contadores) {
@@ -105,7 +105,7 @@ function animarContadores() {
   }
 }
 
-// Filtros y tarjetas del catálogo
+
 function pintarFiltros() {
   const tipos = ["Todos"];
   for (const item of datos.carrocerias) {
@@ -165,7 +165,7 @@ document.querySelector("#grid").addEventListener("click", function (e) {
   mostrarAviso("Agregado a la cotización");
 });
 
-// Cálculos y vista del cotizador
+
 function calcularTotales() {
   let unidades = 0;
   let base = 0;
@@ -324,7 +324,6 @@ document.querySelector("#exportar").addEventListener("click", function () {
   mostrarAviso("Pedido exportado");
 });
 
-// Inicio de la aplicación
 async function iniciar() {
   mostrarPantalla();
 
